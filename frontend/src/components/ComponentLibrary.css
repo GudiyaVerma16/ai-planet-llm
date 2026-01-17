@@ -1,0 +1,105 @@
+/* Sidebar Container */
+.sidebar {
+  width: 200px;
+  background: white;
+  border-right: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Sidebar Header - Chat With AI */
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.sidebar-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.sidebar-icon {
+  color: #6b7280;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.sidebar-icon:hover {
+  color: #111827;
+}
+
+/* Components Section */
+.sidebar-section {
+  padding: 16px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.sidebar-section-title {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #6b7280;
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Component List */
+.component-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Component Item */
+.component-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.component-item:hover {
+  background: #f3f4f6;
+  border-color: #d1d5db;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.component-item:active {
+  cursor: grabbing;
+  background: #e5e7eb;
+}
+
+.component-icon {
+  font-size: 1rem;
+  width: 20px;
+  text-align: center;
+}
+
+.component-name {
+  flex: 1;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.component-drag-handle {
+  font-size: 1rem;
+  color: #9ca3af;
+  cursor: grab;
+}
+
+.component-drag-handle:active {
+  cursor: grabbing;
+}
+

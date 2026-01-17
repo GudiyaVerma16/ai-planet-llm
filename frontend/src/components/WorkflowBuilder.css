@@ -1,0 +1,368 @@
+.workflow-builder {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  background: #fafafa;
+}
+
+.workflow-canvas {
+  flex: 1;
+  position: relative;
+  background-color: #fafafa;
+  background-image: radial-gradient(circle, #e0e0e0 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Empty Canvas State */
+.empty-canvas-state {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.empty-canvas-icon-wrapper {
+  width: 80px;
+  height: 80px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.empty-canvas-text {
+  font-size: 1rem;
+  color: #6b7280;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Build Stack Button */
+.build-stack-container {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 10;
+}
+
+.build-stack-label {
+  background: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.build-stack-button {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #22c55e;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.4);
+  transition: all 0.2s ease;
+}
+
+.build-stack-button:hover {
+  background: #16a34a;
+  transform: scale(1.05);
+}
+
+/* React Flow Controls */
+.react-flow__controls {
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+}
+
+/* ==================== NODE STYLES ==================== */
+
+.workflow-node {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  min-width: 280px;
+  max-width: 320px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  position: relative;
+}
+
+.workflow-node.selected {
+  border-color: #22c55e;
+  box-shadow: 0 4px 16px rgba(34, 197, 94, 0.2);
+}
+
+/* Node Header */
+.node-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.node-icon {
+  font-size: 1.1rem;
+}
+
+.node-title {
+  flex: 1;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.node-settings {
+  font-size: 0.9rem;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.node-settings:hover {
+  opacity: 1;
+}
+
+/* Node Description */
+.node-description {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin-bottom: 16px;
+}
+
+/* Node Fields */
+.node-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.node-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.node-field label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.node-input,
+.node-select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  background: white;
+  transition: border-color 0.2s;
+}
+
+.node-input:focus,
+.node-select:focus {
+  outline: none;
+  border-color: #22c55e;
+}
+
+.node-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  resize: vertical;
+  min-height: 80px;
+  font-family: inherit;
+}
+
+.node-textarea:focus {
+  outline: none;
+  border-color: #22c55e;
+}
+
+/* Input with Eye Icon */
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-with-icon .node-input {
+  padding-right: 40px;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 12px;
+  font-size: 0.9rem;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+/* Upload Button */
+.upload-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  border: 2px dashed #22c55e;
+  border-radius: 8px;
+  color: #22c55e;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: #f0fdf4;
+}
+
+.upload-button:hover {
+  background: #dcfce7;
+}
+
+.upload-icon {
+  font-size: 1rem;
+}
+
+/* Toggle Switch */
+.toggle-field {
+  flex-direction: row !important;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.toggle-switch {
+  position: relative;
+  width: 44px;
+  height: 24px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #e5e7eb;
+  border-radius: 24px;
+  transition: 0.3s;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.toggle-switch input:checked + .toggle-slider {
+  background-color: #22c55e;
+}
+
+.toggle-switch input:checked + .toggle-slider:before {
+  transform: translateX(20px);
+}
+
+/* Handle Styles */
+.react-flow__handle {
+  width: 12px;
+  height: 12px;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.handle-orange {
+  background: #f59e0b !important;
+}
+
+.handle-blue {
+  background: #3b82f6 !important;
+}
+
+.handle-green {
+  background: #22c55e !important;
+}
+
+/* Handle Labels */
+.handle-label {
+  position: absolute;
+  font-size: 0.7rem;
+  color: #6b7280;
+  white-space: nowrap;
+}
+
+.handle-label-bottom {
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.handle-label-left {
+  left: -45px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.handle-label-right {
+  right: -50px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Node Type Border Colors */
+.user-query-node {
+  border-left: 4px solid #22c55e;
+}
+
+.knowledge-base-node {
+  border-left: 4px solid #3b82f6;
+}
+
+.llm-engine-node {
+  border-left: 4px solid #8b5cf6;
+}
+
+.output-node {
+  border-left: 4px solid #22c55e;
+}
+
+/* Edge Styles */
+.react-flow__edge-path {
+  stroke: #94a3b8;
+  stroke-width: 2;
+}
