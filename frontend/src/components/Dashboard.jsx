@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { toast } from 'react-hot-toast'
 import CreateStackModal from './CreateStackModal'
+import { API_BASE_URL } from '../config'
 import './Dashboard.css'
-
-const API_BASE_URL = 'http://localhost:8001/api'
 
 function Dashboard({ onSelectStack, onCreateNewStack, refreshKey }) {
   const [stacks, setStacks] = useState([])

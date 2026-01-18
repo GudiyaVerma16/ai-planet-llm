@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.database import engine, Base
 from app.routers import workflows, documents, chat, components
+import os
 
 # Create database tables (only if database is available)
 try:
@@ -17,10 +18,11 @@ app = FastAPI(
     redirect_slashes=False  # Disable automatic trailing slash redirects
 )
 
-# CORS middleware - Allow all origins for development
+# CORS middleware - Configure for production
+allowed_origins = os.getenv("ALLOWED_ORIGINS", "*").split(",")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

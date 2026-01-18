@@ -13,9 +13,8 @@ import 'reactflow/dist/style.css'
 import ComponentLibrary from './ComponentLibrary'
 import { toast } from 'react-hot-toast'
 import axios from 'axios'
+import { API_BASE_URL } from '../config'
 import './WorkflowBuilder.css'
-
-const API_BASE_URL = 'http://localhost:8001/api'
 
 // User Query Node
 function UserQueryNode({ data, selected }) {

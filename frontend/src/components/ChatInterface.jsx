@@ -1,9 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react'
 import axios from 'axios'
 import { toast } from 'react-hot-toast'
+import { API_BASE_URL } from '../config'
 import './ChatInterface.css'
-
-const API_BASE_URL = 'http://localhost:8001/api'
 
 function ChatInterface({ workflow, onClose }) {
   const [messages, setMessages] = useState([])

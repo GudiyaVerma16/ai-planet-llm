@@ -1,0 +1,39 @@
+services:
+  - type: web
+    name: ai-planet-backend
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: GOOGLE_API_KEY
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: SERPAPI_KEY
+        sync: false
+      - key: UPLOAD_DIR
+        value: /opt/render/project/src/uploads
+    rootDir: backend
+
+  - type: web
+    name: ai-planet-frontend
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm run preview
+    envVars:
+      - key: VITE_API_BASE_URL
+        sync: false
+    rootDir: frontend
+
+databases:
+  - name: ai-planet-db
+    databaseName: aiplanet
+    user: aiplanet_user
+    plan: free
+    region: oregon
