@@ -1,2 +1,6 @@
 // API Configuration
-export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8001/api'
+// Get API base URL from environment variable, with fallback
+const envApiUrl = import.meta.env.VITE_API_BASE_URL
+export const API_BASE_URL = (envApiUrl && envApiUrl.trim() !== '') 
+  ? envApiUrl.trim() 
+  : 'http://localhost:8001/api'
