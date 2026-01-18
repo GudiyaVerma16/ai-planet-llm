@@ -15,6 +15,10 @@ export default defineConfig({
   preview: {
     port: parseInt(process.env.PORT) || 3000,
     host: '0.0.0.0',
-    strictPort: false
+    strictPort: false,
+    allowedHosts: [
+      'ai-planet-llm-1.onrender.com',
+      '.onrender.com' // Allow all Render subdomains
+    ]
   }
 })
